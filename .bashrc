@@ -124,6 +124,8 @@ PATH="$HOME/.local/bin:$PATH"
 
 ncal -bM
 echo Hello, $USER
+td
+echo "----------"
 
 #find out what's filling your drive
 alias diskspace="du -S | sort -n" #TODO du -hS into sort doesn't work -- 1.4M > 1.3G
@@ -133,4 +135,4 @@ alias clean="bash ~/.bashrc"
 alias w="curl wttr.in/?1"
 alias ss="maim ~/Pictures/Screens/$(date +%s).png"
 alias rm="rm -i"
-
+alias a="sudo apt-get"
