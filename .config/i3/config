@@ -92,7 +92,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -206,6 +206,7 @@ bindsym $mod+z exec --no-startup-id pactl set-sink-volume 0 -10% #decrease sound
 
 
 bindsym $mod+shift+l "exec i3lock -c 000022"
+bindsym $mod+shift+a exec firefox
 
 exec --no-startup-id spotify
 #exec bash ~/bin/apod
@@ -217,6 +218,8 @@ exec --no-startup-id discord
 #exec python ~/scripts/thetime.py
 exec_always "setxkbmap -option grp:alt_shift_toggle us,bg ,phonetic"
 exec "/bin/bash -c \"sleep 0.1 && xdotool key 0xff7f\"" # num lock
+
+### TESTING
 
 gaps inner 10
 gaps outer 5

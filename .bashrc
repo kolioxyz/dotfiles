@@ -57,7 +57,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] \w\[\033[00m\] \$ '
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] \w\[\033[00m\] \$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\] \w\[\033[00m\] \$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w \$ '
 fi
@@ -114,20 +115,33 @@ fi
 
 ulimit -Sc0
 
+export XAUTHORITY=~/.Xauthority
+
 clear
 
-
-#remember to chmod
 PATH="$HOME/bin:$PATH"
 PATH="/usr/sbin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
 ncal -bM
-echo Hello, $USER
-td
-echo "----------"
 
-#find out what's filling your drive
+TIME=$(date +%H)
+if [[ $TIME -le 6 ]]
+then
+  GREET="Good evening"
+elif [[ $TIME -le 12 ]]
+then
+  GREET="Good morning"
+elif [[ $TIME -le 18 ]]
+then
+  GREET="Good afternoon"
+else
+  GREET="Good evening"
+fi
+
+echo -e $GREET, $(whoami)".\n"
+td
+
 alias diskspace="du -S | sort -n" #TODO du -hS into sort doesn't work -- 1.4M > 1.3G
 alias f="fortune | lolcat"
 alias please='sudo $(history -p !!)'
