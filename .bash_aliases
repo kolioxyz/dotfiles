@@ -1,0 +1,9 @@
+alias diskspace="du -S | sort -n" #TODO du -hS into sort doesn't work -- 1.4M > 1.3G
+alias f="fortune | lolcat"
+alias please='sudo $(history -p !!)'
+alias clean="bash ~/.bashrc"
+alias w="curl wttr.in/" #?1
+alias rm="rm -i"
+alias a="sudo apt-get"
+alias xcl="xclip -selection clipboard"
+alias sus="i3lock -c 000022; systemctl suspend"
