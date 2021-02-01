@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\] \w\[\033[00m\] \$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\] \w\[\033[00m\] \$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[01;34m\] [\w] \[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w \$ '
 fi
@@ -125,7 +125,7 @@ PATH="$HOME/.local/bin:$PATH"
 
 ncal -bM
 
-TIME=$(date +%H)
+TIME=$(date +%-H)
 if [[ $TIME -le 6 ]]
 then
   GREET="Good evening"
@@ -141,12 +141,3 @@ fi
 
 echo -e $GREET, $(whoami)".\n"
 td
-
-alias diskspace="du -S | sort -n" #TODO du -hS into sort doesn't work -- 1.4M > 1.3G
-alias f="fortune | lolcat"
-alias please='sudo $(history -p !!)'
-alias clean="bash ~/.bashrc"
-alias w="curl wttr.in/?1"
-alias ss="maim ~/Pictures/Screens/$(date +%s).png"
-alias rm="rm -i"
-alias a="sudo apt-get"
